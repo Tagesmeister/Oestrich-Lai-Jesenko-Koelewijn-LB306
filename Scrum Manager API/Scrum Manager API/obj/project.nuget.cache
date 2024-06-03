@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xbh1q9yoIrZCJpUt0nnv2/YyPk5obZI5dxkk2UJn99gliWTnDFCkA0gRipk35ec+ajWZ67VQxZ9K6tEBhFgWNA==",
+  "dgSpecHash": "OKUMsM8o/g5wIKrPNfeahm61PjyZMAfXo2Xv/dLynSzjjsSkyeZ7Vy7GhjD03wlzE5ERAN6ew+q7SJDBtehcaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
+  "projectFilePath": "C:\\Users\\keanu\\Source\\Repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\keanu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\keanu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

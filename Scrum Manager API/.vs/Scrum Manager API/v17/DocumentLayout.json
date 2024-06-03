@@ -1,9 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\",
+  "WorkspaceRootPath": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\scrum manager api\\scrum manager api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\itaskstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\itaskstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\sprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\sprint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\oestrich-lai-jesenko-koulewijn-lb306\\scrum manager api\\scrum manager api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,12 +59,129 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Login.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Login.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Login.cs",
+              "RelativeToolTip": "Scrum Manager API\\Login.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:21:51.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\Source\\Repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\keanu\\Source\\Repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Scrum Manager API\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwA8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:20:05.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "APIController.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\Source\\Repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Controllers\\APIController.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Controllers\\APIController.cs",
+              "ToolTip": "C:\\Users\\keanu\\Source\\Repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Controllers\\APIController.cs",
+              "RelativeToolTip": "Scrum Manager API\\Controllers\\APIController.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAqwFcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:19:36.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Task.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Task.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Task.cs",
+              "RelativeToolTip": "Scrum Manager API\\Task.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAkwDoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:19:20.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ITaskState.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\ITaskState.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\ITaskState.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\ITaskState.cs",
+              "RelativeToolTip": "Scrum Manager API\\ITaskState.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:19:12.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\User.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\User.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\User.cs",
+              "RelativeToolTip": "Scrum Manager API\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:18:26.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Sprint.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Sprint.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Sprint.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Sprint.cs",
+              "RelativeToolTip": "Scrum Manager API\\Sprint.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAcwCAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:19:00.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Project.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Project.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Project.cs",
+              "RelativeToolTip": "Scrum Manager API\\Project.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAA5wCAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:18:50.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Role.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Role.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Role.cs",
+              "RelativeToolTip": "Scrum Manager API\\Role.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAmwBkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:18:39.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\Scrum Manager API\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Program.cs",
               "RelativeDocumentMoniker": "Scrum Manager API\\Program.cs",
-              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\Scrum Manager API\\Program.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Program.cs",
               "RelativeToolTip": "Scrum Manager API\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAmwCIAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-03T13:02:49.346Z",
               "EditorCaption": ""
