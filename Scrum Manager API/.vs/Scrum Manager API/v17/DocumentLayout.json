@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|c:\\users\\keanu\\source\\repos\\scrum manager api\\scrum manager api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EC8CDB6-D821-4E57-9C72-D6D57DEBE88C}|Scrum Manager API\\Scrum Manager API.csproj|solutionrelative:scrum manager api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 294,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{905da7d1-18fd-4a46-8d0f-a5ff58ada9de}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\Scrum Manager API\\Program.cs",
+              "RelativeDocumentMoniker": "Scrum Manager API\\Program.cs",
+              "ToolTip": "C:\\Users\\keanu\\source\\repos\\Scrum Manager API\\Scrum Manager API\\Program.cs",
+              "RelativeToolTip": "Scrum Manager API\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:02:49.346Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
