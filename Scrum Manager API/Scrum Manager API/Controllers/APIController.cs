@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Scrum_Manager_API.Models;
 using SQLitePCL;
+using Microsoft.EntityFrameworkCore;
 using Task = Scrum_Manager_API.Models.Task;
 
 namespace Scrum_Manager_API.Controllers;
@@ -9,7 +11,7 @@ namespace Scrum_Manager_API.Controllers;
 [Authorize]
 [Route("api/[controller]")]
 [ApiController]
-public class APIController
+public class APIController : ControllerBase
 {
     public Project project = new Project();
     public Role role = new Role();
@@ -25,7 +27,14 @@ public class APIController
     [HttpPost]
     public IActionResult CreateProject([FromBody] Project project)
     {
-       
+       if (project  == null)
+       {
+            return BadRequest("Project data is null");  
+       }
+       _context.Projects.Add(project);
+        _context.SaveChanges();
+
+        return Ok(project);
     }
 
     public ActionResult UpdateProject(Project project)
