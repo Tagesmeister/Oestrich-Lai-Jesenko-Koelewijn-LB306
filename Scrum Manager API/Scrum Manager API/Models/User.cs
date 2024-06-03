@@ -17,3 +17,8 @@ public class User
         set { _password = value; }
     }
 }
+
+public class SCRUMDB
+{
+public 
+}
