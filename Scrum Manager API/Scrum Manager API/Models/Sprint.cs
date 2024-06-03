@@ -1,4 +1,4 @@
-namespace Scrum_Manager_API;
+namespace Scrum_Manager_API.Models;
 
 public class Sprint
 {

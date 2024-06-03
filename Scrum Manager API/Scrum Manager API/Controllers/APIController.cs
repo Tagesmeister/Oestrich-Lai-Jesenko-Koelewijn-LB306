@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Scrum_Manager_API.Models;
 
 namespace Scrum_Manager_API.Controllers;
 
