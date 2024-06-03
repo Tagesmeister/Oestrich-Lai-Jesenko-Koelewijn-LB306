@@ -1,25 +1,31 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Scrum_Manager_API.Models;
+using SQLitePCL;
+using Task = Scrum_Manager_API.Models.Task;
 
 namespace Scrum_Manager_API.Controllers;
 
+[Authorize]
+[Route("api/[controller]")]
+[ApiController]
 public class APIController
 {
-    public APIController() { }
+    public Project project = new Project();
+    public Role role = new Role();
+    public Sprint Sprint = new Sprint();
+    public Task task = new Task();
 
-    public ActionResult DeleteUser(int userID)
+    private readonly SCRUMDB _context;
+    public APIController(SCRUMDB context) 
     {
-        // Logic to delete user
+        _context = context;
     }
 
-    public ActionResult UpdateUser(User user)
+    [HttpPost]
+    public IActionResult CreateProject([FromBody] Project project)
     {
-        // Logic to update user
-    }
-
-    public ActionResult CreateProject(Project project)
-    {
-        // Logic to create project
+       
     }
 
     public ActionResult UpdateProject(Project project)
