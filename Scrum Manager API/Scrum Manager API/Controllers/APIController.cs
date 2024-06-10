@@ -49,7 +49,6 @@ public class APIController : ControllerBase
         {
             return NotFound($"Project with ID {id} not found.");
         }
-        existingProject.ProjectID = id;
         existingProject.ProjectName = projectUpdate.ProjectName;
         existingProject.Description = projectUpdate.Description;
         existingProject.RoleIDs = projectUpdate.RoleIDs;
@@ -115,14 +114,40 @@ public class APIController : ControllerBase
         return Ok(sprint);
     }
 
-    public IActionResult UpdateSprint(Sprint sprint)
+    [HttpPut("{id}")]
+    public IActionResult UpdateSprint(int id, [FromBody] Sprint sprintUpdate)
     {
-        // Logic to update sprint
+        if (sprintUpdate == null || id != sprintUpdate.SprintID)
+        {
+            return BadRequest("Project data invalid");
+        }
+
+        var existingProject = _context.Sprints.FirstOrDefault(x => x.SprintID == id);
+        if (existingProject == null)
+        {
+            return NotFound($"Project with ID {id} not found.");
+        }
+        existingProject.StartDate = sprintUpdate.StartDate;
+        existingProject.EndDate = sprintUpdate.EndDate;
+        existingProject.ProjectID = sprintUpdate.ProjectID;
+
+        _context.Sprints.Update(existingProject);
+        _context.SaveChanges();
+
+        return NoContent();
     }
 
+    [HttpGet("{id}")]
     public IActionResult GetSprint(int sprintID)
     {
-        // Logic to get sprint details
+        var project = _context.Projects.FirstOrDefault(s => s.ProjectID == sprintID);
+
+        if (project == null)
+        {
+            return NotFound($"Project with ID {sprintID} not found");
+        }
+
+        return Ok(project);
     }
 
     [HttpPost]
