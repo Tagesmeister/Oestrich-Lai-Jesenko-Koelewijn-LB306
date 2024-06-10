@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProductOwner</title>
-    <link rel="stylesheet" href="product.css">
-</head>
-<body>
-    <button class="product-button">Product owner</button>
-    <button class="developer-button">Developer Team</button>
-    <button class="scrum-button">Scrum Master</button>
-    <button class="edit-button">Edit Roles</button>
+    <link rel="stylesheet" href="product.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <a class="developer-button" href="developerTeam.html">Developer Team</a>
+      <a class="scrum-button" href="scrumMaster.html">Scrum Master</a>
+      <a class="edit-button" href="editRole.html">Edit Roles</a>
+    </div>
 
     <div class="container">
-        <div class="header">
-            <div class="title">Product Owner</div>
-            <button class="logout-button">Log out</button>
-        </div>
-        <div class="content"></div>
-        <div class="inner-content">
-            <textarea placeholder=" " id="input-log"></textarea>
-        </div>
-        <button id="save-button">Save Backlog</button>
+      <div class="header">
+        <div class="title">Product Owner</div>
+        <button class="logout-button">Log out</button>
+      </div>
+      <div class="content"></div>
+      <div class="inner-content">
+        <input type="title" placeholder="Title" id="input-title" />
+        <textarea placeholder=" " id="input-log"></textarea>
+      </div>
+      <button class="save-button" onclick="PostDescription()">Save Backlog</button>
     </div>
-</body>
+
+    <script src="productOwner.js"></script>
+  </body>
 </html>
