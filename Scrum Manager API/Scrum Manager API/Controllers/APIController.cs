@@ -49,7 +49,7 @@ public class APIController : ControllerBase
         {
             return NotFound($"Project with ID {id} not found.");
         }
-        existingProject.ProjectID = id;
+        
         existingProject.ProjectName = projectUpdate.ProjectName;
         existingProject.Description = projectUpdate.Description;
         existingProject.RoleIDs = projectUpdate.RoleIDs;
@@ -87,19 +87,51 @@ public class APIController : ControllerBase
         return Ok(role);
     }
 
-    public IActionResult UpdateRole(Role role)
+    [HttpPut("{id}")]
+    public IActionResult UpdateRole(int roleID, [FromBody] Role roleUpdate)
     {
-        
-    }
+       if(roleUpdate == null || roleID != roleUpdate.RoleID)
+       {
+            return BadRequest("Role data is invalid");
+       }
+       var existingRole = _context.Roles.FirstOrDefault(s => s.RoleID == roleID);
+       if (existingRole == null)
+       {
+            return NotFound($"Role with ID {roleID} not found.");
+       }
+       existingRole.RoleName = roleUpdate.RoleName;
+       existingRole.ProjectID = roleUpdate.ProjectID;
 
+       _context.Roles.Update(existingRole);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+    [HttpDelete("{id}")]
     public IActionResult DeleteRole(int roleID)
     {
-        // Logic to delete role
+        var roleToDelete = _context.Roles.FirstOrDefault(r => r.RoleID == roleID);
+        if (roleToDelete == null)
+        {
+            return NotFound("Role not found.");
+        }
+
+        _context.Roles.Remove(roleToDelete);
+        _context.SaveChanges();
+
+        return Ok($"Role with ID {roleID} deleted.");
     }
 
     public IActionResult GetRole(int roleID)
     {
-        // Logic to get role details
+        var Role = _context.Roles.FirstOrDefault(s => s.RoleID == roleID);
+
+        if (role == null)
+        {
+            return NotFound($"Role with ID {roleID} not found");
+        }
+
+        return Ok(role);
     }
 
     [HttpPost]
