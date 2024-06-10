@@ -151,13 +151,13 @@ public class APIController : ControllerBase
     {
         if (sprintUpdate == null || id != sprintUpdate.SprintID)
         {
-            return BadRequest("Project data invalid");
+            return BadRequest("Sprint data invalid");
         }
 
         var existingProject = _context.Sprints.FirstOrDefault(x => x.SprintID == id);
         if (existingProject == null)
         {
-            return NotFound($"Project with ID {id} not found.");
+            return NotFound($"Sprint with ID {id} not found.");
         }
         existingProject.StartDate = sprintUpdate.StartDate;
         existingProject.EndDate = sprintUpdate.EndDate;
@@ -176,7 +176,7 @@ public class APIController : ControllerBase
 
         if (project == null)
         {
-            return NotFound($"Project with ID {sprintID} not found");
+            return NotFound($"Sprint with ID {sprintID} not found");
         }
 
         return Ok(project);
