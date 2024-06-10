@@ -1,0 +1,83 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f0a500;
+  padding: 10px;
+}
+
+.navbar button {
+  background-color: #ffa726;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f8f8;
+}
+
+.column {
+  background-color: #d3d3d3;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  margin: 10px;
+}
+
+.column h2 {
+  text-align: center;
+}
+
+.tasks,
+.developers,
+.backlog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-input,
+.task-list,
+.developer-list,
+.backlog-list {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.task-item,
+.developer-item,
+.backlog-item {
+  background-color: #fff;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.buttons button {
+  background-color: #ffa726;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 10px;
+}
