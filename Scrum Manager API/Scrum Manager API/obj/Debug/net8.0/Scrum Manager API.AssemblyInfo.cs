@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Scrum Manager API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ebbed6a6e40644927c60dd9fce15c4b77bfeeed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3417ee45107338c295c6852389cfc86ebfbd78d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Scrum Manager API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Scrum Manager API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -25,7 +25,7 @@ public class APIController : ControllerBase
     }
 
     [HttpPost]
-    public IIActionResult CreateProject([FromBody] Project project)
+    public IActionResult CreateProject([FromBody] Project project)
     {
         if (project == null)
         {
@@ -59,10 +59,20 @@ public class APIController : ControllerBase
 
         return NoContent();
 
-        //public ActionResult GetProject(int projectID)
+   
+    }
+    [HttpGet("{id}")]
+    public IActionResult GetProject(int projectID)
+    {
+        var project = _context.Projects.FirstOrDefault(s => s.ProjectID == projectID);
+
+        if (project == null)
         {
-            // Logic to get project details
+            return NotFound($"Project with ID {projectID} not found");
         }
+
+        return Ok(project);
+    }
 
     [HttpPost]
     public IActionResult CreateRole(Role role)
@@ -79,7 +89,7 @@ public class APIController : ControllerBase
 
     public IActionResult UpdateRole(Role role)
     {
-        // Logic to update role
+        
     }
 
     public IActionResult DeleteRole(int roleID)
