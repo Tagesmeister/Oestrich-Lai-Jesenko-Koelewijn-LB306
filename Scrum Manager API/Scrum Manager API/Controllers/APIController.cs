@@ -19,7 +19,7 @@ public class APIController : ControllerBase
     public Task task = new Task();
 
     private readonly SCRUMDB _context;
-    public APIController(SCRUMDB context) 
+    public APIController(SCRUMDB context)
     {
         _context = context;
     }
@@ -27,78 +27,96 @@ public class APIController : ControllerBase
     [HttpPost]
     public IActionResult CreateProject([FromBody] Project project)
     {
-       if (project  == null)
-       {
-            return BadRequest("Project data is null");  
-       }
-       _context.Projects.Add(project);
+        if (project == null)
+        {
+            return BadRequest("Project data is null");
+        }
+        _context.Projects.Add(project);
         _context.SaveChanges();
 
         return Ok(project);
     }
-
-    public ActionResult UpdateProject(Project project)
+    [HttpPut("{id}")]
+    public IActionResult UpdateProject(int id, [FromBody] Project projectUpdate)
     {
-        // Logic to update project
-    }
+        if (projectUpdate == null || id != projectUpdate.ProjectID)
+        {
+            return BadRequest("Project data invalid");
+        }
 
-    public ActionResult GetProject(int projectID)
-    {
-        // Logic to get project details
-    }
+        var existingProject = _context.Projects.FirstOrDefault(x => x.ProjectID == id);
+        if (existingProject == null)
+        {
+            return NotFound($"Project with ID {id} not found.");
+        }
+        existingProject.ProjectID = id;
+        existingProject.ProjectName = projectUpdate.ProjectName;
+        existingProject.Description = projectUpdate.Description;
+        existingProject.RoleIDs = projectUpdate.RoleIDs;
 
-    public ActionResult CreateRole(Role role)
-    {
-        // Logic to create role
-    }
+        _context.Projects.Update(existingProject);
+        _context.SaveChanges();
 
-    public ActionResult UpdateRole(Role role)
-    {
-        // Logic to update role
-    }
+        return NoContent();
 
-    public ActionResult DeleteRole(int roleID)
-    {
-        // Logic to delete role
-    }
+        //public ActionResult GetProject(int projectID)
+        {
+            // Logic to get project details
+        }
 
-    public ActionResult GetRole(int roleID)
-    {
-        // Logic to get role details
-    }
+        //public ActionResult CreateRole(Role role)
+        {
+            // Logic to create role
+        }
 
-    public ActionResult CreateSprint(Sprint sprint)
-    {
-        // Logic to create sprint
-    }
+        //public ActionResult UpdateRole(Role role)
+        {
+            // Logic to update role
+        }
 
-    public ActionResult UpdateSprint(Sprint sprint)
-    {
-        // Logic to update sprint
-    }
+        //public ActionResult DeleteRole(int roleID)
+        {
+            // Logic to delete role
+        }
 
-    public ActionResult GetSprint(int sprintID)
-    {
-        // Logic to get sprint details
-    }
+        //public ActionResult GetRole(int roleID)
+        {
+            // Logic to get role details
+        }
 
-    public ActionResult CreateTask(Task task)
-    {
-        // Logic to create task
-    }
+        //public ActionResult CreateSprint(Sprint sprint)
+        {
+            // Logic to create sprint
+        }
 
-    public ActionResult UpdateTask(Task task)
-    {
-        // Logic to update task
-    }
+        //public ActionResult UpdateSprint(Sprint sprint)
+        {
+            // Logic to update sprint
+        }
 
-    public ActionResult DeleteTask(int taskID)
-    {
-        // Logic to delete task
-    }
+        //public ActionResult GetSprint(int sprintID)
+        {
+            // Logic to get sprint details
+        }
 
-    public ActionResult GetTask(int taskID)
-    {
-        // Logic to get task details
+        //public ActionResult CreateTask(Task task)
+        {
+            // Logic to create task
+        }
+
+        //public ActionResult UpdateTask(Task task)
+        {
+            // Logic to update task
+        }
+
+        //public ActionResult DeleteTask(int taskID)
+        {
+            // Logic to delete task
+        }
+
+        //public ActionResult GetTask(int taskID)
+        {
+            // Logic to get task details
+        }
     }
 }

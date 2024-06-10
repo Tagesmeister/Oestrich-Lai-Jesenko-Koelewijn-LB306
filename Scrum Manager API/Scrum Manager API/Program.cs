@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using Scrum_Manager_API.Models;
+
 namespace Scrum_Manager_API
 {
     public class Program
@@ -10,9 +13,10 @@ namespace Scrum_Manager_API
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<SCRUMDB>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
