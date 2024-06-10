@@ -194,19 +194,46 @@ public class APIController : ControllerBase
 
         return Ok(task);
     }
-
-    public IActionResult UpdateTask(Task task)
+    [HttpPut("{id}")]
+    public IActionResult UpdateTask(int id,[FromBody]Task taskUpdate)
     {
-        // Logic to update task
-    }
+        if (taskUpdate == null || id != taskUpdate.TaskID)
+        {
+            return BadRequest("Task data is invalid.");
 
+        }
+        var existingTask = _context.Tasks.FirstOrDefault(x => x.TaskID == id);
+        if (existingTask == null)
+        {
+            return NotFound($"Task with ID {id} not found.");
+        }
+        _context.Tasks.Update(existingTask);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
+    [HttpDelete("{id}")]
     public IActionResult DeleteTask(int taskID)
     {
-        // Logic to delete task
-    }
+       var taskToDelete = _context.Tasks.FirstOrDefault(x =>x.TaskID == taskID);
+       if (taskToDelete == null)
+       {
+            return NotFound("Task not found.");
+       }
+       _context.Tasks.Remove(taskToDelete);
+       _context.SaveChanges();
 
+        return Ok($"Task with ID {taskID} deleted.");
+    }
+    [HttpGet("{id}")]
     public IActionResult GetTask(int taskID)
     {
-        // Logic to get task details
+        var task = _context.Tasks.FirstOrDefault(x => x.TaskID == taskID);
+
+        if (task == null)
+        {
+            return NotFound($"Task with ID {taskID} not found");
+        }
+        return Ok(task);
     }
 }
