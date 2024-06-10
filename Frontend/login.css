@@ -1,0 +1,88 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px; /* Standard-Schriftgröße */
+    color: #333; /* Dunkelgrau für Text */
+}
+
+#login-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; 
+    margin: 0;
+}
+#item {
+    background-color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    width: 90%;
+    max-width: 500px;
+}
+#button-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+}
+
+#button-nav button {
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border: none;
+    cursor: pointer;
+    flex-grow: 1;
+    color: #333;
+    margin-bottom: 20%;
+    font-weight: bold;
+}
+#submit {
+    padding: 10px 20px;
+    background-color: #f9a825;
+    border-radius: 10px;
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 20%;
+}
+
+
+#button-nav button:hover {
+    background-color: #e0e0e0;
+}
+#user-input {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+#div-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+}
+
+
+#user-input label, #user-input input {
+    margin: 10px;
+    width: calc(100% - 20px); 
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"] {
+    outline: none; 
+    border: 1px solid #ccc; 
+    min-height: 10%;
+    
+}
+
+input[type="text"]:hover, input[type="password"]:hover,
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #888; 
+}

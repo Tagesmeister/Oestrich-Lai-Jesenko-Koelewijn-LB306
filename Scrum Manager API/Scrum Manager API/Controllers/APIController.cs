@@ -25,7 +25,7 @@ public class APIController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateProject([FromBody] Project project)
+    public IIActionResult CreateProject([FromBody] Project project)
     {
         if (project == null)
         {
@@ -64,59 +64,82 @@ public class APIController : ControllerBase
             // Logic to get project details
         }
 
-        //public ActionResult CreateRole(Role role)
+    [HttpPost]
+    public IActionResult CreateRole(Role role)
+    {
+        if (role == null)
         {
-            // Logic to create role
+            return BadRequest("role data is null");
         }
+        _context.Roles.Add(role);
+        _context.SaveChanges();
 
-        //public ActionResult UpdateRole(Role role)
-        {
-            // Logic to update role
-        }
+        return Ok(role);
+    }
 
-        //public ActionResult DeleteRole(int roleID)
-        {
-            // Logic to delete role
-        }
+    public IActionResult UpdateRole(Role role)
+    {
+        // Logic to update role
+    }
 
-        //public ActionResult GetRole(int roleID)
-        {
-            // Logic to get role details
-        }
+    public IActionResult DeleteRole(int roleID)
+    {
+        // Logic to delete role
+    }
 
-        //public ActionResult CreateSprint(Sprint sprint)
-        {
-            // Logic to create sprint
-        }
+    public IActionResult GetRole(int roleID)
+    {
+        // Logic to get role details
+    }
 
-        //public ActionResult UpdateSprint(Sprint sprint)
+    [HttpPost]
+    public IActionResult CreateSprint(Sprint sprint)
+    {
+        if (sprint == null)
         {
-            // Logic to update sprint
+            return BadRequest("sprint data is null");
         }
+        _context.Sprints.Add(sprint);
+        _context.SaveChanges();
 
-        //public ActionResult GetSprint(int sprintID)
-        {
-            // Logic to get sprint details
-        }
+        return Ok(sprint);
+    }
 
-        //public ActionResult CreateTask(Task task)
-        {
-            // Logic to create task
-        }
+    public IActionResult UpdateSprint(Sprint sprint)
+    {
+        // Logic to update sprint
+    }
 
-        //public ActionResult UpdateTask(Task task)
-        {
-            // Logic to update task
-        }
+    public IActionResult GetSprint(int sprintID)
+    {
+        // Logic to get sprint details
+    }
 
-        //public ActionResult DeleteTask(int taskID)
+    [HttpPost]
+    public IActionResult CreateTask(Task task)
+    {
+        if (task == null)
         {
-            // Logic to delete task
+            return BadRequest("Task data is null");
         }
+        _context.Tasks.Add(task);
+        _context.SaveChanges();
 
-        //public ActionResult GetTask(int taskID)
-        {
-            // Logic to get task details
-        }
+        return Ok(task);
+    }
+
+    public IActionResult UpdateTask(Task task)
+    {
+        // Logic to update task
+    }
+
+    public IActionResult DeleteTask(int taskID)
+    {
+        // Logic to delete task
+    }
+
+    public IActionResult GetTask(int taskID)
+    {
+        // Logic to get task details
     }
 }
