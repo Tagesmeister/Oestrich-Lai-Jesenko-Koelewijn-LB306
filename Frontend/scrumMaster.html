@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ScrumMaster</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="scrum.css" />
+    <title>Scrum Master</title>
+  </head>
+  <body>
+    <div class="header">
+      <button class="header-button">Product Owner</button>
+      <button class="header-button">Developer Team</button>
+      <button class="header-button">Scrum Master</button>
+      <button class="header-button">Edit Roles</button>
+    </div>
+    <div class="sub-header">
+      <span>Scrum Master</span>
+      <button class="logout-button">Log out</button>
+    </div>
+    <div class="container">
+      <div class="left-panel">
+        <div class="log-section">
+          <h3>Add Daily Scrum Log</h3>
+          <input type="text" placeholder="Title:" class="input-title" />
+          <textarea placeholder=" " class="input-log"></textarea>
+          <button class="save-log-button">Save Log</button>
+        </div>
+        <div class="log-list">
+          <h3>Your Daily Scrum Logs</h3>
+          <div class="log-item">
+            Nr. 1 <button class="delete-button">✖</button>
+          </div>
+          <div class="log-item">
+            Nr. 2 <button class="delete-button">✖</button>
+          </div>
+          <div class="log-item">
+            Nr. 3 <button class="delete-button">✖</button>
+          </div>
+          <div class="log-item">
+            Nr. 4 <button class="delete-button">✖</button>
+          </div>
+          <div class="log-item">
+            Nr. 5 <button class="delete-button">✖</button>
+          </div>
+          <div class="log-item">
+            Nr. 6 <button class="delete-button">✖</button>
+          </div>
+        </div>
+      </div>
+      <div class="right-panel">
+        <h3>Current Sprint Statistics:</h3>
+        <div class="stat-item">
+          Progress:
+          <div class="progress-bar">
+            <div class="progress" style="width: 62%"></div>
+          </div>
+          <span>62%</span>
+        </div>
+        <div class="stat-item">
+          Mast Developer:
+          <div class="developer">Dev 1</div>
+        </div>
+        <div class="stat-item">
+          Less Developer:
+          <div class="developer">Dev 4</div>
+        </div>
+        <div class="stat-item">
+          Completed Tasks:
+          <div class="tasks">1</div>
+        </div>
+        <div class="stat-item">
+          Incomplete Tasks:
+          <div class="tasks">7</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
