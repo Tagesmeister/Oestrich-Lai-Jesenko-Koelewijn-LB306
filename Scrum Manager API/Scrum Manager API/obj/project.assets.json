@@ -8060,19 +8060,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\stefa\\.nuget\\packages\\": {}
+    "C:\\Users\\keanu\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stefa\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
+      "projectUniqueName": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
       "projectName": "Scrum Manager API",
-      "projectPath": "C:\\Users\\stefa\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
-      "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\stefa\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\obj\\",
+      "projectPath": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\Scrum Manager API.csproj",
+      "packagesPath": "C:\\Users\\keanu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\keanu\\source\\repos\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\Scrum Manager API\\Scrum Manager API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\keanu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8080,6 +8085,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
