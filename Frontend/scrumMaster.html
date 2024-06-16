@@ -8,10 +8,9 @@
   </head>
   <body>
     <div class="header">
-      <button class="header-button">Product Owner</button>
-      <button class="header-button">Developer Team</button>
-      <button class="header-button">Scrum Master</button>
-      <button class="header-button">Edit Roles</button>
+      <a class="header-button" href="productOwner.html">Product Owner</a>
+      <a class="header-button" href="developerTeam.html">Developer Team</a>
+      <a class="header-button" href="editRole.html">Edit Roles</a>
     </div>
     <div class="sub-header">
       <span>Scrum Master</span>
@@ -21,9 +20,9 @@
       <div class="left-panel">
         <div class="log-section">
           <h3>Add Daily Scrum Log</h3>
-          <input type="text" placeholder="Title:" class="input-title" />
-          <textarea placeholder=" " class="input-log"></textarea>
-          <button class="save-log-button">Save Log</button>
+          <input type="text" placeholder="Title:" id="input-title" />
+          <textarea placeholder=" " id="input-log"></textarea>
+          <button class="save-log-button" onclick="PostScrumLog()">Save Log</button>
         </div>
         <div class="log-list">
           <h3>Your Daily Scrum Logs</h3>
@@ -74,5 +73,6 @@
         </div>
       </div>
     </div>
+    <script src="scrumMaster.js"></script>
   </body>
 </html>

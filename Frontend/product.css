@@ -99,7 +99,7 @@ html {
   box-sizing: border-box;
 }
 
-.input-log {
+#input-log {
   width: calc(
     100% - 20px
   );
@@ -109,7 +109,7 @@ html {
   margin-bottom: 10px;
   resize: none;
 }
-.save-button {
+#save-button {
   background-color: #f9a825;
   border: none;
   color: black;

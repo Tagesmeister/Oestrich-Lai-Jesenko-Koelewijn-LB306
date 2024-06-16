@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="product.css" />
   </head>
   <body>
-    <button class="product-button">Product owner</button>
-    <button class="developer-button">Developer Team</button>
-    <button class="scrum-button">Scrum Master</button>
-    <button class="edit-button">Edit Roles</button>
+    <div class="nav">
+      <a class="developer-button" href="developerTeam.html">Developer Team</a>
+      <a class="scrum-button" href="scrumMaster.html">Scrum Master</a>
+      <a class="edit-button" href="editRole.html">Edit Roles</a>
+    </div>
 
     <div class="container">
       <div class="header">
@@ -19,9 +20,12 @@
       </div>
       <div class="content"></div>
       <div class="inner-content">
-        <textarea placeholder=" " class="input-log"></textarea>
+        <input type="title" placeholder="Title" id="input-title" />
+        <textarea placeholder=" " id="input-log"></textarea>
       </div>
-      <button class="save-button">Save Backlog</button>
+      <button class="save-button" onclick="PostDescription()">Save Backlog</button>
     </div>
+
+    <script src="productOwner.js"></script>
   </body>
 </html>
