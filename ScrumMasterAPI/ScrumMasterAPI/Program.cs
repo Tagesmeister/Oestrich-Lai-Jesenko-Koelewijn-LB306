@@ -14,7 +14,13 @@ namespace ScrumMasterAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-        
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://127.0.0.1:5500")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod());
+            });
 
             builder.Services.AddControllers();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -72,7 +78,18 @@ namespace ScrumMasterAPI
                 app.UseSwaggerUI();
             }
 
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -82,5 +99,6 @@ namespace ScrumMasterAPI
 
             app.Run();
         }
+
     }
 }
