@@ -20,6 +20,7 @@
             <div class="tasks">
                 <input type="text" placeholder="Title" id="task-title">
                 <textarea placeholder="Description" id="task-description"></textarea>
+                <input type="text" placeholder="Status" id="task-status">
                 <div class="buttons">
                     <button onclick="saveTask()">Save Task</button>
                 </div>
@@ -28,17 +29,20 @@
         <div class="column">
             <h2>Add Developer to Task</h2>
             <div class="developers">
-                <div class="developer-list">
-                    <!-- Dynamisch geladene Entwickler werden hier angezeigt -->
-                </div>
+                <ul id="role-list">
+                    <!-- Dynamically loaded roles will be displayed here -->
+                </ul>
             </div>
         </div>
         <div class="column">
             <h2>Your Sprint Backlog</h2>
             <div class="backlog">
-                <div class="backlog-list">
-                    <!-- Dynamisch geladene Sprint-Backlog-Items werden hier angezeigt -->
+                <div id="backlog-list">
+                    <!-- Dynamically loaded backlog items will be displayed here -->
                 </div>
+                <input type="text" placeholder="StartDate" id="sprint-StartDate">
+                <input type="text" placeholder="EndDate" id="sprint-EndDate">
+                <input type="text" placeholder="Project" id="sprint-Project">
                 <div class="buttons">
                     <button onclick="startSprint()">Start Sprint</button>
                 </div>

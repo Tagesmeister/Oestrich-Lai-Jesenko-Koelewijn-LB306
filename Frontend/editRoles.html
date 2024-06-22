@@ -19,19 +19,16 @@
         <h2>Edit Roles</h2>
         <div id="role-form">
           <label for="role-select">Select Role:</label>
-          <select id="role-select" onchange="fetchUsersByRole()">
+          <select id="role-select">
             <option value="product-owner">Product Owner</option>
             <option value="developer-team">Developer Team</option>
             <option value="scrum-master">Scrum Master</option>
           </select>
           <input type="text" id="user-name" placeholder="Enter name" />
-          <button onclick="addOrUpdateUser()">Add/Update Name</button>
-          <div id="user-list">
-            <!-- Users will be dynamically loaded here -->
-          </div>
-          <button id="save-button" onclick="saveRoleChanges()">
-            Save Changes
-          </button>
+          
+          
+          
+          <button onclick="addRole()">Add Role</button>
         </div>
       </div>
     </div>

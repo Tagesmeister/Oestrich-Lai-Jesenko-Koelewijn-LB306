@@ -1,61 +1,70 @@
 const apiUrl = "https://localhost:7270/api/Role";
-const roleIDs = {}; // This will hold the role information with IDs
+const roleIDs = {};
 
-// Fetch users by role and update the user list
-async function fetchUsersByRole() {
-  const role = document.getElementById("role-select").value;
-  console.log(`Fetching users for role: ${role}`); // Added for debugging
+const accessToken = localStorage.getItem('accessToken');
+
+// Fetch roles and update the role list
+async function fetchRoles() {
   try {
-    const response = await fetch(`${apiUrl}/users/${role}`);
-    console.log(`Response status: ${response.status}`); // Added for debugging
-    if (!response.ok) {
-      const errorText = await response.text(); // Added for debugging
-      throw new Error(
-        `Network response was not ok: ${response.status} - ${errorText}`
-      );
-    }
-    const data = await response.json();
-    console.log("Fetched data:", data); // Added for debugging
-    updateUsersList(data);
+      const response = await fetch(`${apiUrl}/GetRoles`, {
+          headers: {
+              'Authorization': `Bearer ${accessToken}`
+          }
+      });
+      if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Network response was not ok: ${response.status} - ${errorText}`);
+      }
+      const data = await response.json();
+      updateRoleList(data);
   } catch (error) {
-    console.error("Error:", error);
-    alert(
-      `Failed to fetch users for the role: ${role}. Error: ${error.message}`
-    );
+      console.error("Error:", error);
+      alert(`Failed to fetch roles. Error: ${error.message}`);
   }
 }
 
-// Update the user list in the UI
-function updateUsersList(users) {
-  const userList = document.getElementById("user-list");
-  userList.innerHTML = "";
-  users.forEach((user) => {
-    userList.innerHTML += `
-      <div class="user-item">
-        <span>${user.name}</span>
-        <button class="edit-button" onclick="editUser(${user.id})">Edit</button>
-        <button class="edit-button" onclick="deleteUser(${user.id})">Delete</button>
-      </div>`;
+function updateRoleList(roles) {
+  const roleList = document.getElementById('role-list');
+  roleList.innerHTML = ''; // Clear existing list items
+  roles.forEach(role => {
+      const listItem = document.createElement('li');
+      listItem.textContent = role.name; // Assuming each role object has a 'name' property
+      roleList.appendChild(listItem);
   });
 }
 
-// Create a new role
-async function createRole(role, name) {
+
+
+// Add a new role
+async function addRole() {
+  const role = document.getElementById('role-select').value;
+  const username = document.getElementById('user-name').value;
+  const projectData = {
+    RoleName: role,
+    Name: username
+  };
+
   try {
     const response = await fetch(`${apiUrl}/CreateRole`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
       },
-      body: JSON.stringify({ role, name }),
+      body: JSON.stringify(projectData)
     });
-    if (!response.ok) throw new Error("Network response was not ok");
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage}`);
+    }
+
     const data = await response.json();
-    roleIDs[data.id] = { role, name };
-    fetchUsersByRole(); // Refresh the list after creating
+    roleIDs[data.RoleID] = { name: data.Name };
+    console.log('Role added successfully:', data);
+    fetchRoles(); 
   } catch (error) {
-    console.error("Error:", error);
-    alert(`Failed to create role: ${role}. Error: ${error.message}`);
+    console.error('Error adding role:', error);
   }
 }
 
@@ -66,66 +75,72 @@ async function updateRole(roleId, role, name) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        'Authorization': `Bearer ${accessToken}`
       },
-      body: JSON.stringify({ role, name }),
+      body: JSON.stringify({ RoleName: role, Name: name }),
     });
     if (!response.ok) throw new Error("Network response was not ok");
     roleIDs[roleId] = { role, name };
-    fetchUsersByRole(); // Refresh the list after updating
+    fetchRoles(); // Refresh the list after updating
   } catch (error) {
     console.error("Error:", error);
     alert(`Failed to update role: ${role}. Error: ${error.message}`);
   }
 }
 
-// Delete a user by role ID
-async function deleteUser(roleId) {
+// Delete a role by role ID
+async function deleteRole(roleID) {
   try {
-    const response = await fetch(`${apiUrl}/DeleteRole/${roleId}`, {
-      method: "DELETE",
+    const response = await fetch(`${apiUrl}/DeleteRole/${roleID}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
     });
-    if (!response.ok) throw new Error("Network response was not ok");
-    delete roleIDs[roleId];
-    fetchUsersByRole(); // Refresh the list after deleting
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage}`);
+    }
+
+    delete roleIDs[roleID];
+    console.log('Role deleted successfully');
+    fetchRoles(); // Refresh the list after deleting
   } catch (error) {
-    console.error("Error:", error);
-    alert(`Failed to delete user with ID: ${roleId}. Error: ${error.message}`);
+    console.error('Error deleting role:', error);
   }
 }
 
-// Add or update a user based on the role
-async function addOrUpdateUser() {
-  const role = document.getElementById("role-select").value;
-  const name = document.getElementById("user-name").value;
-  if (!name) {
-    alert("Please enter a name.");
-    return;
-  }
-  const existingRoleId = Object.keys(roleIDs).find(
-    (key) => roleIDs[key].role === role && roleIDs[key].name === name
-  );
-  if (existingRoleId) {
-    await updateRole(existingRoleId, role, name);
-  } else {
-    await createRole(role, name);
-  }
-}
+async function getRole(roleID) {
+  try {
+    const response = await fetch(`${apiUrl}/GetRole/${roleID}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    });
 
-// Save role changes (this can be extended to save all changes at once)
-function saveRoleChanges() {
-  console.log("Changes saved.");
-  console.log(roleIDs); // Log the current state of roleIDs
-  // Implement additional save logic if necessary
-}
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorMessage}`);
+    }
 
-// Edit user (populate the form with user data for editing)
-function editUser(roleId) {
-  const user = roleIDs[roleId];
-  if (user) {
-    document.getElementById("role-select").value = user.role;
-    document.getElementById("user-name").value = user.name;
+    const data = await response.json();
+    console.log('Role fetched successfully:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching role:', error);
   }
 }
 
-// Initial load
-window.onload = fetchUsersByRole;
+// Edit role (populate the form with role data for editing)
+function editRole(roleId) {
+  const role = roleIDs[roleId];
+  if (role) {
+    document.getElementById("role-select").value = role.role;
+    document.getElementById("user-name").value = role.name;
+  }
+}
+
+console.log("Using access token:", accessToken);
+console.log("Submitting project data:", projectData);
