@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScrumMasterAPI")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af2f053aa0d35adeeb6b2856e9dc4d90aafbe344")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4fa7596b28a3b8fd4ed3f6a24f8475260d25d4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

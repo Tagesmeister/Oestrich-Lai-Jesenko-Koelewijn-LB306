@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pBaakxZNIeA9fnuZV7Z1NawhvkB1EkmzkkgXi3hyIO5I1Dv61//EM3ynmlADkmtw3vdOHUK7eYXrgkZi3gV1XA==",
+  "dgSpecHash": "pH1t0jpdSNZY+1RQxAStrZW5NzvgY6jry2JjRnujgEGn2McDMKjkbixOViKQ5w/711vhyXynGNXH5QNuONJeHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
+  "projectFilePath": "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stefa\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\stefa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -75,4 +75,17 @@ public class RoleController : ControllerBase
 
         return Ok(role);
     }
+
+    [HttpGet("GetRoles")]
+    public IActionResult GetRoles()
+    {
+        var roles = _context.Roles.ToList();
+
+        if (roles == null || roles.Count == 0)
+        {
+            return NotFound("No roles found");
+        }
+
+        return Ok(roles);
+    }
 }

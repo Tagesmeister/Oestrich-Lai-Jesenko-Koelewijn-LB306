@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj": {}
+    "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj": {
+    "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
+        "projectUniqueName": "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
         "projectName": "ScrumMasterAPI",
-        "projectPath": "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
+        "projectPath": "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\ScrumMasterAPI.csproj",
         "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stefa\\source\\repos\\ScrumMasterAPI\\ScrumMasterAPI\\obj\\",
+        "outputPath": "C:\\Users\\stefa\\Source\\Repos\\Tagesmeister\\Oestrich-Lai-Jesenko-Koulewijn-LB306\\ScrumMasterAPI\\ScrumMasterAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
