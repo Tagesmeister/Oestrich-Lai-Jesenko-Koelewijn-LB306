@@ -11,21 +11,18 @@ html {
 .header {
   display: flex;
   justify-content: space-around;
-  background-color: #f9a825;
+  background-color: #f0a500;
   padding: 10px 0;
-  
 }
 
 .header-button {
-  background-color: #ffa726;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
   text-decoration-line: none;
   color: black;
-  background-color: #f0a500;
-
+  background-color: #f9a825;
 }
 
 .sub-header {
