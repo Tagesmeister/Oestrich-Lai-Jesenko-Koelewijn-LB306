@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edit Roles</title>
-  <link rel="stylesheet" href="edit.css" />
-</head>
-<body>
-  <div class="navbar">
-    <a href="productOwner.html">Product Owner</a>
-    <a href="developerTeam.html">Developer Team</a>
-    <a href="scrumMaster.html">Scrum Master</a>
-  </div>
-  <div class="content">
-    <div class="column">
-      <h2>Edit Roles</h2>
-      <div id="role-form">
-        <label for="role-select">Select Role:</label>
-        <select id="role-select" onchange="fetchUsersByRole()">
-          <option value="product-owner">Product Owner</option>
-          <option value="developer-team">Developer Team</option>
-          <option value="scrum-master">Scrum Master</option>
-        </select>
-        <input type="text" id="user-name" placeholder="Enter name" />
-        <button onclick="addUserToRole()">Add/Update Name</button>
-        <div id="user-list">
-          <!-- Benutzer werden dynamisch hier geladen -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Roles</title>
+    <link rel="stylesheet" href="edit.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="productOwner.html">Product Owner</a>
+      <a href="developerTeam.html">Developer Team</a>
+      <a href="scrumMaster.html">Scrum Master</a>
+    </div>
+    <div class="content">
+      <div class="column">
+        <h2>Edit Roles</h2>
+        <div id="role-form">
+          <label for="role-select">Select Role:</label>
+          <select id="role-select" onchange="fetchUsersByRole()">
+            <option value="product-owner">Product Owner</option>
+            <option value="developer-team">Developer Team</option>
+            <option value="scrum-master">Scrum Master</option>
+          </select>
+          <input type="text" id="user-name" placeholder="Enter name" />
+          <button onclick="addOrUpdateUser()">Add/Update Name</button>
+          <div id="user-list">
+            <!-- Users will be dynamically loaded here -->
+          </div>
+          <button id="save-button" onclick="saveRoleChanges()">
+            Save Changes
+          </button>
         </div>
-        <button id="save-button" onclick="saveRoleChanges()">Save Changes</button>
       </div>
     </div>
-  </div>
-  <script src="editRoles.js"></script>
-</body>
+    <script src="editRoles.js"></script>
+  </body>
 </html>
