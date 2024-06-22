@@ -52,7 +52,7 @@ body {
 #task-title,
 #task-description,
 .task-list,
-.developer-list,
+.role-list,
 .backlog-list {
     width: 100%;
     margin-top: 10px;
