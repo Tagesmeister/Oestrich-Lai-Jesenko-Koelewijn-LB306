@@ -8,10 +8,9 @@
 </head>
 <body>
     <div class="navbar">
-        <button>Product Owner</button>
-        <button>Developer Team</button>
-        <button>Scrum Master</button>
-        <button>Edit Roles</button>
+        <a href="productOwner.html">Product Owner</a>
+        <a href="scrumMaster.html">Scrum Master</a>
+        <a href="editRoles.html">Edit Roles</a>
     </div>
     <div class="content">
         <div class="column">
@@ -20,7 +19,7 @@
                 <input type="text" placeholder="Title" id="task-title">
                 <textarea placeholder="Description" id="task-description"></textarea>
                 <div class="buttons">
-                    <button>Save Task</button>
+                    <button onclick="saveTask()">Save Task</button>
                 </div>
             </div>
         </div>
@@ -28,24 +27,7 @@
             <h2>Add Developer to Task</h2>
             <div class="developers">
                 <div class="developer-list">
-                    <div class="developer-item">
-                        Dev 1 <span style="color: green;">✔</span>
-                    </div>
-                    <div class="developer-item">
-                        Dev 2 <span style="color: green;">✔</span>
-                    </div>
-                    <div class="developer-item">
-                        Dev 3 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="developer-item">
-                        Dev 4 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="developer-item">
-                        Dev 5 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="developer-item">
-                        Dev 6 <span style="color: red;">✘</span>
-                    </div>
+                    <!-- Dynamisch geladene Entwickler werden hier angezeigt -->
                 </div>
             </div>
         </div>
@@ -53,30 +35,14 @@
             <h2>Your Sprint Backlog</h2>
             <div class="backlog">
                 <div class="backlog-list">
-                    <div class="backlog-item">
-                        Nr. 1 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="backlog-item">
-                        Nr. 2 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="backlog-item">
-                        Nr. 3 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="backlog-item">
-                        Nr. 4 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="backlog-item">
-                        Nr. 5 <span style="color: red;">✘</span>
-                    </div>
-                    <div class="backlog-item">
-                        Nr. 6 <span style="color: red;">✘</span>
-                    </div>
+                    <!-- Dynamisch geladene Sprint-Backlog-Items werden hier angezeigt -->
                 </div>
                 <div class="buttons">
-                    <button>Start Sprint</button>
+                    <button onclick="startSprint()">Start Sprint</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="developerTeam.js"></script>
 </body>
 </html>

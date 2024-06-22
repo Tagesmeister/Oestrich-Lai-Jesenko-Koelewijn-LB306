@@ -7,7 +7,7 @@ html {
   font-family: Arial, sans-serif;
 }
 
-.product-button {
+.navLink {
   background-color: #f9a825;
   border: none;
   color: black;
@@ -16,25 +16,14 @@ html {
   padding: 5px 10px;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
+  color: black;
+  text-decoration: none;
+
+}
+.nav{
+  margin-bottom: 0.5%;
 }
 
-.developer-button {
-  background-color: #f9a825;
-  border: none;
-  color: black;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 5px 10px;
-}
-
-.scrum-button {
-  background-color: #f9a825;
-  border: none;
-  color: black;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 5px 10px;
-}
 
 .edit-button {
   background-color: #f9a825;

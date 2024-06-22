@@ -5,35 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <title>Document</title>
 </head>
 <body>
     <main id="login-main-container">
         <h1 id="title">Scrum Manager</h1>
 
+        <a href="productOwner.html"> Product Owner</a>
+
         <div id="item">
             <nav id="button-nav">
-                <button id="login-button">Login</button>
-                <button id="register-button">Register</button>
+                <button id="login-button" onclick="toggleAction('login')">Login</button>
+                <button id="register-button" onclick="toggleAction('register')">Register</button>
             </nav>
 
             <div id="user-input">
-                <Label>Username:</Label>
+                <label>Username:</label>
                 <input id="username" type="text">
 
-                <Label>Password:</Label>
+                <label>Password:</label>
                 <input id="password" type="password">
 
                 <div id="div-submit">
-                    <button id="submit">Submit</button>
+                    <button id="submit" onclick="submitForm()">Submit</button>
                 </div>
-
             </div>
-
         </div>
     </main>
     
-    
+    <script src="login.js"></script>
 </body>
 </html>

@@ -1,47 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Roles</title>
-    <link rel="stylesheet" href="edit.css" />
-  </head>
-  <body>
-    <div class="navbar">
-      <button>Product Owner</button>
-      <button>Developer Team</button>
-      <button>Scrum Master</button>
-      <button>Edit Roles</button>
-    </div>
-    <div class="content">
-      <div class="column">
-        <h2>Edit Roles</h2>
-        <div id="role-form">
-          <label for="role-select">Select Role:</label>
-          <select id="role-select">
-            <option value="product-owner">Product Owner</option>
-            <option value="developer-team">Developer Team</option>
-            <option value="scrum-master">Scrum Master</option>
-          </select>
-          <div id="user-list">
-            <div class="user-item">
-              <span>User 1</span>
-              <button class="edit-button">Edit</button>
-            </div>
-            <div class="user-item">
-              <span>User 2</span>
-              <button class="edit-button">Edit</button>
-            </div>
-            <div class="user-item">
-              <span>User 3</span>
-              <button class="edit-button">Edit</button>
-            </div>
-          </div>
-          <div id="buttons">
-            <button id="save-button">Save Changes</button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Roles</title>
+  <link rel="stylesheet" href="edit.css" />
+</head>
+<body>
+  <div class="navbar">
+    <a href="productOwner.html">Product Owner</a>
+    <a href="developerTeam.html">Developer Team</a>
+    <a href="scrumMaster.html">Scrum Master</a>
+  </div>
+  <div class="content">
+    <div class="column">
+      <h2>Edit Roles</h2>
+      <div id="role-form">
+        <label for="role-select">Select Role:</label>
+        <select id="role-select" onchange="fetchUsersByRole()">
+          <option value="product-owner">Product Owner</option>
+          <option value="developer-team">Developer Team</option>
+          <option value="scrum-master">Scrum Master</option>
+        </select>
+        <input type="text" id="user-name" placeholder="Enter name" />
+        <button onclick="addUserToRole()">Add/Update Name</button>
+        <div id="user-list">
+          <!-- Benutzer werden dynamisch hier geladen -->
         </div>
+        <button id="save-button" onclick="saveRoleChanges()">Save Changes</button>
       </div>
     </div>
-  </body>
+  </div>
+  <script src="editRoles.js"></script>
+</body>
 </html>

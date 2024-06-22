@@ -8,9 +8,11 @@
   </head>
   <body>
     <div class="nav">
-      <a class="developer-button" href="developerTeam.html">Developer Team</a>
-      <a class="scrum-button" href="scrumMaster.html">Scrum Master</a>
-      <a class="edit-button" href="editRole.html">Edit Roles</a>
+      <a class="navLink" href="developerTeam.html">Developer Team</a>
+      <a class="navLink" href="scrumMaster.html">Scrum Master</a>
+      <a class="navLink" href="editRoles.html">Edit Roles</a>
+      <a class="navLink" href="login.html">Login</a>
+
     </div>
 
     <div class="container">
@@ -20,10 +22,10 @@
       </div>
       <div class="content"></div>
       <div class="inner-content">
-        <input type="title" placeholder="Title" id="input-title" />
-        <textarea placeholder=" " id="input-log"></textarea>
+        <input type="text" placeholder="Title" id="input-title" />
+        <textarea placeholder="Backlog Item Description" id="input-log"></textarea>
       </div>
-      <button class="save-button" onclick="PostDescription()">Save Backlog</button>
+      <button class="save-button" onclick="createProject()">Save Backlog</button>
     </div>
 
     <script src="productOwner.js"></script>
