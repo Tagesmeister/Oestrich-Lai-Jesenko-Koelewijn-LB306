@@ -1,32 +1,50 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px; /* Standard-Schriftgröße */
-    color: #333; /* Dunkelgrau für Text */
+    font-size: 16px;
+    color: #333;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
 }
 
-#login-main-container {
+.view {
+    display: none;
+}
+
+#login-main-container,
+#dashboard-main-container,
+#create-scrum-container,
+#home-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh; 
+    height: 100vh;
     margin: 0;
 }
-#item {
+
+#title {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+#item, #dashboard, #create-scrum {
     background-color: #e0e0e0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     width: 90%;
-    max-width: 500px;
+    max-width: 400px;
 }
+
 #button-nav {
     display: flex;
     justify-content: space-around;
-    width: 100%; 
+    width: 100%;
 }
 
 #button-nav button {
@@ -36,53 +54,148 @@ body {
     cursor: pointer;
     flex-grow: 1;
     color: #333;
-    margin-bottom: 20%;
+    margin-bottom: 20px;
     font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-#submit {
-    padding: 10px 20px;
-    background-color: #f9a825;
-    border-radius: 10px;
-    width: 50%;
-    border: none;
-    cursor: pointer;
-    color: #333;
-    font-weight: bold;
-    margin-top: 5%;
-    margin-bottom: 20%;
-}
-
 
 #button-nav button:hover {
     background-color: #e0e0e0;
 }
-#user-input {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
+
+#button-nav button.active {
+    background-color: #f0a500;
+    color: white;
 }
+
+#user-input,
+#dashboard,
+#create-scrum {
+    width: 100%;
+}
+
+#user-input label,
+#user-input input,
+#create-scrum label,
+#create-scrum input {
+    margin: 10px;
+    width: calc(100% - 20px);
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #888;
+}
+
 #div-submit {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; 
+    width: 100%;
 }
 
-
-#user-input label, #user-input input {
-    margin: 10px;
-    width: calc(100% - 20px); 
+#submit,
+#dashboard button,
+#create-scrum button {
+    padding: 10px 20px;
+    background-color: #f9a825;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #333;
     font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"], input[type="password"] {
-    outline: none; 
-    border: 1px solid #ccc; 
-    min-height: 10%;
-    
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f0a500;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-input[type="text"]:hover, input[type="password"]:hover,
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #888; 
+.navbar a {
+    background-color: #f9a825;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    background-color: #e09520;
+}
+
+.navbar .logout-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+}
+
+#home-content {
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    margin: 10px auto; /* Further reduced top margin to bring the project box higher */
+    text-align: center;
+    margin-top: -220px; /* Ensures enough space from the navbar */
+}
+
+#scrum-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#scrum-list div span {
+    flex-grow: 1;
+}
+
+#scrum-list div button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#scrum-list div button:hover {
+    background-color: #d32f2f;
+}
+
+#developers-list input {
+    margin: 5px 0;
 }

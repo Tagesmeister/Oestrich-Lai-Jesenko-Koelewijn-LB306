@@ -7,33 +7,44 @@
     <title>Scrum Master</title>
 </head>
 <body>
-    <div class="header">
-      <a class="header-button" href="productOwner.html">Product Owner</a>
-      <a class="header-button" href="developerTeam.html">Developer Team</a>
-      <a class="header-button" href="editRoles.html">Edit Roles</a>
+    <div class="navbar">
+        <a href="productOwner.html">Product Owner</a>
+        <a href="developerTeam.html">Developer Team</a>
+        <a href="scrumMaster.html" class="active">Scrum Master</a>
+        <a href="editRoles.html">Edit Roles</a>
     </div>
-    <div class="sub-header">
-      <span>Scrum Master</span>
-      <button class="logout-button">Log out</button>
+
+    <div class="content">
+        <div class="column">
+            <h2>Add Daily Scrum Log</h2>
+            <div class="tasks">
+                <input type="text" placeholder="Title" id="log-title">
+                <div class="buttons">
+                    <button onclick="saveLog()">Save Log</button>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Your Daily Scrum Logs</h2>
+            <div class="backlog-list" id="log-list">
+                <!-- Daily scrum logs will be dynamically loaded here -->
+            </div>
+        </div>
+        <div class="column">
+            <h2>Current Sprint Statistics:</h2>
+            <div class="statistics">
+                <div>Progress: <span id="progress">62%</span></div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 62%;"></div>
+                </div>
+                <div>Most Developer: <input type="text" id="most-dev" value="Dev 1" readonly></div>
+                <div>Less Developer: <input type="text" id="less-dev" value="Dev 4" readonly></div>
+                <div>Completed Tasks: <span id="completed-tasks">1</span></div>
+                <div>Incomplete Tasks: <span id="incomplete-tasks">7</span></div>
+            </div>
+        </div>
     </div>
-    <div class="container">
-      <div class="left-panel">
-        <h3>Current Team Roles</h3>
-        <div id="role-assignments">
-          <!-- Role assignments will be dynamically loaded here -->
-        </div>
-        <h3>Your Daily Scrum Logs</h3>
-        <div class="log-list" id="log-list">
-          <!-- Daily scrum logs will be dynamically loaded here -->
-        </div>
-      </div>
-      <div class="right-panel">
-        <h3>Current Sprint Tasks:</h3>
-        <div id="task-list">
-          <!-- Task list will be dynamically loaded here -->
-        </div>
-      </div>
-    </div>
+    
     <script src="scrumMaster.js"></script>
 </body>
 </html>
