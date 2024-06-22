@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af2f053aa0d35adeeb6b2856e9dc4d90aafbe344")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1ced4e240b3b4f4e366cf2151326ccba9ac8dc5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

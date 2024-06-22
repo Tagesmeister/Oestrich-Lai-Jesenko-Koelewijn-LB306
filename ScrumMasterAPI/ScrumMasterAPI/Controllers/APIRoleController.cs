@@ -40,7 +40,7 @@ public class RoleController : ControllerBase
             return NotFound($"Role with ID {id} not found.");
         }
         existingRole.RoleName = roleUpdate.RoleName;
-        existingRole.ProjectID = roleUpdate.ProjectID;
+        existingRole.Name = roleUpdate.Name;
 
         _context.Roles.Update(existingRole);
         _context.SaveChanges();
