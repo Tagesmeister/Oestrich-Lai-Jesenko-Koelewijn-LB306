@@ -100,3 +100,22 @@ textarea {
   color: red;
   cursor: pointer;
 }
+
+#mobile-message {
+  display: none;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-top: 20%;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .content {
+      display: none;
+  }
+
+  #mobile-message {
+      display: block;
+  }
+}
