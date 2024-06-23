@@ -8,6 +8,7 @@ namespace ScrumMasterAPI.Models
         public DbSet<Role> Roles { get; set; }
         public DbSet<Sprint> Sprints { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<SprintBackLog> sprintBackLogs { get; set; }
 
         public SCRUMDB(DbContextOptions<SCRUMDB> options) : base(options) { }
 
@@ -19,6 +20,8 @@ namespace ScrumMasterAPI.Models
                 .HasKey(s => s.SprintID);
             modelBuilder.Entity<Task>()
                 .HasKey(s => s.TaskID);
+            modelBuilder.Entity<SprintBackLog>()
+                .HasKey(s => s.SprintBackLogID);
         }
     }
 }

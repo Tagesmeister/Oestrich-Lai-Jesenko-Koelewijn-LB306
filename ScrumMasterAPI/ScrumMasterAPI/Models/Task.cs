@@ -6,9 +6,8 @@
         private string _title;
         private string _description;
         private string _status;
-        private int _assigneeID;
         private string _currentState;
-        private int _sprintID;
+  
 
         public int TaskID
         {

@@ -7,6 +7,7 @@
         private string _endDate;
         private string _project;
         private List<int> _taskIDs;
+        public List<int> _roleIDs;
 
         public int SprintID
         {
@@ -37,5 +38,11 @@
             get { return _taskIDs; }
             set { _taskIDs = value; }
         }
+        public List<int> RoleIDs
+        {
+            get { return _roleIDs; }
+            set { _roleIDs = value; }
+        }
+
     }
 }
