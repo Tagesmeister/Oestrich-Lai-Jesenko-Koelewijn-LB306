@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+453bad60e93f8b6b0f6aa04d07f03b19fa17e270")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02ce6e684d6b857c94d8b4b81bd9a23ddf0387b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScrumMasterAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
