@@ -2,14 +2,10 @@ const apiUrl = "https://localhost:7270/api";
 const accessToken = localStorage.getItem('accessToken');
 
 // On window load, fetch developers and backlog items
-
-
 window.onload = function() {
     fetchRoles();
     fetchBacklogItems();
-  
 };
-
 
 async function fetchRoles() {
     try {
@@ -33,14 +29,19 @@ function updateRoleList(roles) {
     roles.forEach(role => {
         console.log('Role:', role); // Log each role to verify its structure
         const listItem = document.createElement('li');
-        listItem.textContent = `${role.roleID} ${role.roleName}: ${role.name}`; // Assuming each role object has 'id', 'roleName', and 'name' properties
-        listItem.classList.add('developer-item');
+        listItem.classList.add('role-item');
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.classList.add('role-checkbox');
+        checkbox.value = role.roleID;
+        
+        listItem.appendChild(checkbox);
+        listItem.appendChild(document.createTextNode(`${role.roleID} ${role.roleName}: ${role.name}`)); // Assuming each role object has 'roleID', 'roleName', and 'name' properties
         roleList.appendChild(listItem);
     });
 }
 
-
-// Fetch backlog items from the API and update the backlog list
 async function fetchBacklogItems() {
     try {
         const response = await fetch(`${apiUrl}/Task/GetTasks`, {
@@ -61,12 +62,18 @@ function updateBacklogList(items) {
     backlogList.innerHTML = '';
     items.forEach(item => {
         const backlogItem = document.createElement('li');
-        backlogItem.textContent = `Task ${item.taskID}: ${item.title}`;
         backlogItem.classList.add('backlog-item');
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.classList.add('task-checkbox');
+        checkbox.value = item.taskID;
+        
+        backlogItem.appendChild(checkbox);
+        backlogItem.appendChild(document.createTextNode(`Task ${item.taskID}: ${item.title}`));
         backlogList.appendChild(backlogItem);
     });
 }
-
 
 async function saveTask() {
     console.log("ich hasse Javascript");
@@ -77,7 +84,8 @@ async function saveTask() {
     const taskData = { 
         Title: title, 
         Description: description, 
-        Status: status };
+        Status: status 
+    };
 
     try {
         const response = await fetch(`${apiUrl}/Task/CreateTask`, {
@@ -87,28 +95,35 @@ async function saveTask() {
                 'Authorization': `Bearer ${accessToken}`
             },
             body: JSON.stringify(taskData)
-            
         });
         if (!response.ok) throw new Error("Failed to create task");
-        console.log("ich hasse Javascript");
+        console.log("Task successfully created");
+        fetchBacklogItems(); // Refresh the backlog items
     } catch (error) {
         console.error("Error creating task:", error);
     }
 }
 
-// Start a new sprint by adding all backlog items
 async function startSprint() {
-    const taskElements = document.querySelectorAll('.backlog-item');
-    const taskIDs = Array.from(taskElements).map(item => extractTaskID(item.textContent));
-    
+    // Get selected task IDs
+    const checkedTaskElements = document.querySelectorAll('.task-checkbox:checked');
+    const taskIDs = Array.from(checkedTaskElements).map(checkbox => parseInt(checkbox.value, 10));
+
     console.log("Task IDs:", taskIDs); // Debugging line to check the extracted IDs
-    
+
+    // Get selected role IDs
+    const checkedRoleElements = document.querySelectorAll('.role-checkbox:checked');
+    const roleIDs = Array.from(checkedRoleElements).map(checkbox => parseInt(checkbox.value, 10));
+
+    console.log("Role IDs:", roleIDs); // Debugging line to check the extracted IDs
+
     const startDate = document.getElementById('sprint-StartDate').value;
     const endDate = document.getElementById('sprint-EndDate').value;
     const project = document.getElementById('sprint-Project').value;
 
     const sprintData = { 
         TaskIDs: taskIDs,
+        RoleIDs: roleIDs,
         StartDate: startDate,
         EndDate: endDate,
         Project: project
@@ -124,14 +139,34 @@ async function startSprint() {
             body: JSON.stringify(sprintData)
         });
         if (!response.ok) throw new Error("Failed to start sprint");
-        fetchBacklogItems();
+        fetchBacklogItems(); // Refresh the backlog items
     } catch (error) {
         console.error("Error starting sprint:", error);
     }
 }
 
-function extractTaskID(taskText) {
-    const match = taskText.match(/^Task (\d+):/);
-    return match ? parseInt(match[1], 10) : null;
-}
 
+async function assignRolesToTask() {
+    const checkedRoleElements = document.querySelectorAll('.role-checkbox:checked');
+    const roleIDs = Array.from(checkedRoleElements).map(checkbox => parseInt(checkbox.value, 10));
+
+    console.log("Role IDs:", roleIDs); // Debugging line to check the extracted IDs
+
+    // Example of assigning roles to a specific task (assuming you have task ID and role assignment logic)
+    // This part depends on your API and how you handle role assignments to tasks
+
+    try {
+        const response = await fetch(`${apiUrl}/Task/AssignRoles`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body: JSON.stringify({ RoleIDs: roleIDs, TaskID: someTaskID }) // Replace `someTaskID` with actual task ID
+        });
+        if (!response.ok) throw new Error("Failed to assign roles to task");
+        console.log("Roles successfully assigned to task");
+    } catch (error) {
+        console.error("Error assigning roles to task:", error);
+    }
+}

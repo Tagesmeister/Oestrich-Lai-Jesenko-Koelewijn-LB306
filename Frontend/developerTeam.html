@@ -32,14 +32,17 @@
                 <ul id="role-list">
                     <!-- Dynamically loaded roles will be displayed here -->
                 </ul>
+                <div class="buttons">
+                    <button onclick="assignRolesToTask()">Assign Roles</button>
+                </div>
             </div>
         </div>
         <div class="column">
             <h2>Your Sprint Backlog</h2>
             <div class="backlog">
-                <div id="backlog-list">
+                <ul id="backlog-list">
                     <!-- Dynamically loaded backlog items will be displayed here -->
-                </div>
+                </ul>
                 <input type="text" placeholder="StartDate" id="sprint-StartDate">
                 <input type="text" placeholder="EndDate" id="sprint-EndDate">
                 <input type="text" placeholder="Project" id="sprint-Project">

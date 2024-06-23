@@ -1,34 +1,36 @@
-function createProject() {
+const apiUrl = "https://localhost:7270/api/Task";
+const accessToken = localStorage.getItem('accessToken');
+window.onload = function() {
+    fetchBacklogItems();
+  
+};
+
+function saveBacklog() {
     const title = document.getElementById('input-title').value;
     const description = document.getElementById('input-log').value;
+    const status = document.getElementById('input-status').value;
 
-    // Sample static roleIDs for demonstration. In a real scenario, these would be collected from user input:
-    const roleIDs = [];  // This needs to be dynamically gathered based on your application's UI
-
-    const projectData = {
-        projectName: title,
+    const taskData = {
+        title: title,
         description: description,
-        roleIDs: roleIDs  // Assuming you have a way to gather this data : WAS SOLL DIES / STEFAN FRAGEN
+        status: status  // Ensure the key matches the expected key in the backend
     };
 
-    const apiURL = "https://localhost:7270/api/Project/CreateProject";
-    const accessToken = localStorage.getItem('accessToken');
-
     console.log("Using access token:", accessToken);
-    console.log("Submitting project data:", projectData);
+    console.log("Submitting project data:", taskData);
 
-    fetch(apiURL, {
+    fetch(`${apiUrl}/CreateTask`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${accessToken}`
         },
-        body: JSON.stringify(projectData)
+        body: JSON.stringify(taskData)
     })
     .then(response => {
         if (!response.ok) {
             console.error("HTTP Error Response Code:", response.status);
-            throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json().then(err => { throw new Error(`HTTP error! status: ${response.status}, message: ${err.message}`); });
         }
         return response.json();
     })
@@ -39,5 +41,32 @@ function createProject() {
     .catch(error => {
         console.error('Error:', error);
         alert('Error submitting form!');
+    });
+}
+
+
+async function fetchBacklogItems() {
+    try {
+        const response = await fetch(`${apiUrl}/GetTasks`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        });
+        if (!response.ok) throw new Error("Failed to fetch backlog items");
+        const backlogItems = await response.json();
+        updateBacklogList(backlogItems);
+    } catch (error) {
+        console.error("Error fetching backlog items:", error);
+    }
+}
+
+function updateBacklogList(items) {
+    const backlogList = document.getElementById('backlog-list');
+    backlogList.innerHTML = '';
+    items.forEach(item => {
+        const backlogItem = document.createElement('div');
+        backlogItem.textContent = `Task ${item.taskID}: ${item.title}`;
+        backlogItem.classList.add('backlog-item');
+        backlogList.appendChild(backlogItem);
     });
 }

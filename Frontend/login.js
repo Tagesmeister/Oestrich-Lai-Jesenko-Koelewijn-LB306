@@ -123,50 +123,58 @@ function createScrum() {
         }
     }
 
-    const url = 'https://localhost:7270/api/Project/CreateProject';
-    const projectData = {
-        projectName: projectName,
-        description: '',
-        roleIDs: [] // Assuming the backend assigns role IDs and you are only setting role names
-    };
+    // Create roles with developer numbering
+    const roles = [
+        { name: productOwner, roleName: 'Product Owner' },
+        { name: scrumMaster, roleName: 'Scrum Master' },
+        ...developers.map((dev, index) => ({ name: dev, roleName: `Developer ${index + 1}` }))
+    ];
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        },
-        body: JSON.stringify(projectData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(err => { throw new Error(err.message || `HTTP error! status: ${response.status}`); });
-        }
-        return response.json();
+    // Create roles
+    Promise.all(roles.map(role => {
+        return fetch('https://localhost:7270/api/Role/CreateRole', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(role)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message || `HTTP error! status: ${response.status}`); });
+            }
+            return response.json();
+        });
+    }))
+    .then(createdRoles => {
+        const roleIDs = createdRoles.map(role => role.roleID);
+        
+        const projectData = {
+            projectName: projectName,
+            description: '',
+            roleIDs: roleIDs
+        };
+
+        const url = 'https://localhost:7270/api/Project/CreateProject';
+        return fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify(projectData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => { throw new Error(err.message || `HTTP error! status: ${response.status}`); });
+            }
+            return response.json();
+        });
     })
     .then(project => {
         projectIDs.push(project.projectID); // Add the newly created project ID to the list
         localStorage.setItem('projectIDs', JSON.stringify(projectIDs)); // Save project IDs to localStorage
-        // Assuming you need to create roles after project creation
-        const roles = [
-            { roleName: 'Product Owner', projectID: project.projectID },
-            { roleName: 'Scrum Master', projectID: project.projectID },
-            ...developers.map(dev => ({ roleName: 'Developer', projectID: project.projectID }))
-        ];
-
-        // Create roles
-        return Promise.all(roles.map(role => {
-            return fetch('https://localhost:7270/api/Role/CreateRole', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                },
-                body: JSON.stringify(role)
-            });
-        }));
-    })
-    .then(() => {
         console.log('Scrum created successfully');
         showHome();
     })
@@ -174,6 +182,8 @@ function createScrum() {
         console.error('Create scrum failed:', error);
     });
 }
+
+
 
 function deleteScrum(projectID) {
     const url = `https://localhost:7270/api/Project/DeleteProject/${projectID}`;
@@ -188,10 +198,10 @@ function deleteScrum(projectID) {
         if (!response.ok) {
             return response.json().then(err => { throw new Error(err.message || `HTTP error! status: ${response.status}`); });
         }
-        return response.json();
+        return response.text();  // Expecting an empty body, treat it as text
     })
-    .then(data => {
-        console.log('Scrum deleted:', data);
+    .then(() => {
+        console.log('Scrum deleted successfully');
         projectIDs = projectIDs.filter(id => id !== projectID); // Remove the deleted project ID from the list
         localStorage.setItem('projectIDs', JSON.stringify(projectIDs)); // Update project IDs in localStorage
         fetchScrums();  // Refresh the list after deletion
@@ -200,6 +210,7 @@ function deleteScrum(projectID) {
         console.error('Delete scrum failed:', error);
     });
 }
+
 
 function showHome() {
     document.getElementById('create-scrum-container').style.display = 'none';

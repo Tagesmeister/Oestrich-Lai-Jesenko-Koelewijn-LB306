@@ -3,101 +3,50 @@ const accessToken = localStorage.getItem('accessToken');
 
 // On window load, fetch role assignments, tasks, and scrum logs
 window.onload = function() {
-    fetchRoleAssignments();
-    fetchSprintTasks();
-   
+    fetchScrumLogs()
 };
 
-// Fetch role assignments from the API and display them
-async function fetchRoleAssignments() {
-    try {
-        const response = await fetch(`${apiUrl}/Role/GetRoles`, {
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        });
-        if (!response.ok) throw new Error("Failed to fetch role assignments");
-        const roles = await response.json();
-        displayRoleAssignments(roles);
-    } catch (error) {
-        console.error("Error fetching role assignments:", error);
-    }
-}
+function saveLog() {
+    const title = document.getElementById('log-title').value;
+    const description = document.getElementById('log-description').value;
 
-function displayRoleAssignments(assignments) {
-    const roleAssignments = document.getElementById('role-assignments');
-    roleAssignments.innerHTML = '';
-    assignments.forEach(assignment => {
-        const roleItem = document.createElement('div');
-        roleItem.textContent = `${assignment.roleName}: ${assignment.name}`; // Assuming each role object has 'roleName' and 'name' properties
-        roleAssignments.appendChild(roleItem);
+
+    const SprintBackLogData = {
+        Title: title,
+        Description: description
+    };
+
+   
+    console.log("Submitting project data:", SprintBackLogData);
+
+    fetch(`${apiUrl}/APISprintBackLog/CreateSprintBackLog`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${accessToken}`
+        },
+        body: JSON.stringify(SprintBackLogData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.error("HTTP Error Response Code:", response.status);
+            return response.json().then(err => { throw new Error(`HTTP error! status: ${response.status}, message: ${err.message}`); });
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        alert('Project successfully created!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error submitting form!');
     });
 }
 
-
-async function fetchSprintTasks() {
-    try {
-        const response = await fetch(`${apiUrl}/Sprint/GetSprints`, {
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        });
-        if (!response.ok) throw new Error("Failed to fetch sprints");
-        const sprints = await response.json();
-
-        let index = 0; // Initialize index
-
-        while (true) {
-            let taskFound = false;
-
-            for (const sprint of sprints) {
-                if (Array.isArray(sprint.taskIDs) && index < sprint.taskIDs.length) {
-                    const taskID = sprint.taskIDs[index]; // Get the task ID at the current index
-                    await fetchTask(taskID); // Fetch and display the task
-                    taskFound = true;
-                }
-            }
-
-            if (!taskFound) {
-                break; // Exit the loop if no task was found in any sprint
-            }
-
-            index += 1; // Increment the index for the next round
-        }
-    } catch (error) {
-        console.error("Error fetching tasks:", error);
-    }
-}
-
-// Fetch a single task based on ID
-async function fetchTask(id) {
-    try {
-        const response = await fetch(`${apiUrl}/Task/GetTask/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${accessToken}`
-            }
-        });
-        if (!response.ok) throw new Error(`Failed to fetch task ${id}`);
-        const task = await response.json();
-        displayTask(task); // Display the single task
-    } catch (error) {
-        console.error(`Error fetching task ${id}:`, error);
-    }
-}
-
-// Display a single task in the HTML
-function displayTask(task) {
-    const taskList = document.getElementById('task-list');
-    const taskItem = document.createElement('div');
-    taskItem.textContent = `Task ${task.taskID}: ${task.description}`; // Assuming each task object has 'taskID' and 'description' properties
-    taskItem.classList.add('task-item');
-    taskList.appendChild(taskItem);
-}
-
-
 async function fetchScrumLogs() {
     try {
-        const response = await fetch(`${apiUrl}/scrumlogs`, {
+        const response = await fetch(`${apiUrl}/APISprintBackLog/GetSprintBackLogs`, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
             }
@@ -115,7 +64,9 @@ function displayScrumLogs(logs) {
     logList.innerHTML = '';
     logs.forEach(log => {
         const logItem = document.createElement('div');
-        logItem.textContent = `Log ${log.id}: ${log.title}`;
+        logItem.textContent = `Log ${log.sprintBackLogID}: 
+        Title:${log.title} 
+        Description: ${log.description}`;
         logList.appendChild(logItem);
     });
 }
