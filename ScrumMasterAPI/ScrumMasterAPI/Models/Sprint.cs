@@ -3,9 +3,10 @@
     public class Sprint
     {
         private int _sprintID;
-        private DateTime _startDate;
-        private DateTime _endDate;
-        private int _projectID;
+        private string _startDate;
+        private string _endDate;
+        private string _project;
+        private List<int> _taskIDs;
 
         public int SprintID
         {
@@ -13,22 +14,28 @@
             set { _sprintID = value; }
         }
 
-        public DateTime StartDate
+        public string StartDate
         {
             get { return _startDate; }
             set { _startDate = value; }
         }
 
-        public DateTime EndDate
+        public string EndDate
         {
             get { return _endDate; }
             set { _endDate = value; }
         }
 
-        public int ProjectID
+        public string Project
         {
-            get { return _projectID; }
-            set { _projectID = value; }
+            get { return _project; }
+            set { _project = value; }
+        }
+
+        public List<int> TaskIDs
+        {
+            get { return _taskIDs; }
+            set { _taskIDs = value; }
         }
     }
 }

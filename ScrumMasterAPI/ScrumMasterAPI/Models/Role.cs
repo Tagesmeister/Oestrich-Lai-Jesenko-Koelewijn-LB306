@@ -4,7 +4,7 @@
     {
         private int _roleID;
         private string _roleName;
-        private int _projectID;
+        private string _name;
 
         public int RoleID
         {
@@ -18,10 +18,10 @@
             set { _roleName = value; }
         }
 
-        public int ProjectID
+        public string Name
         {
-            get { return _projectID; }
-            set { _projectID = value; }
+            get { return _name; }
+            set { _name = value; }
         }
     }
 }

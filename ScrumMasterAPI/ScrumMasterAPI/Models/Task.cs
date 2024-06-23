@@ -34,24 +34,5 @@
             set { _status = value; }
         }
 
-        public int AssigneeID
-        {
-            get { return _assigneeID; }
-            set { _assigneeID = value; }
-        }
-
-        public string CurrentState
-        {
-            get { return _currentState; }
-            set { _currentState = value; }
-        }
-
-        public int SprintID
-        {
-            get { return _sprintID; }
-            set { _sprintID = value; }
-        }
-
-
     }
 }

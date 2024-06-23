@@ -8,7 +8,7 @@ using ScrumMasterAPI.Models;
 [ApiController]
 public class TaskController : ControllerBase
 {
-    public ChangeTaskState _changeState;
+   
     private readonly SCRUMDB _context;
     public TaskController(SCRUMDB context)
     {
@@ -43,9 +43,9 @@ public class TaskController : ControllerBase
         }
         existingTask.Title = taskUpdate.Title;
         existingTask.Description = taskUpdate.Description;
-        existingTask.SprintID = taskUpdate.SprintID;
+
         existingTask.Status = taskUpdate.Status;
-        existingTask.AssigneeID = taskUpdate.AssigneeID;
+       
 
 
 
@@ -67,8 +67,6 @@ public class TaskController : ControllerBase
         {
             return NotFound($"Task with ID {id} not found");
         }
-        _changeState.ChangeState(newState.CurrentState, currentTask.CurrentState);
-        currentTask.CurrentState = newState.CurrentState;
 
         return NoContent();
 
@@ -101,5 +99,19 @@ public class TaskController : ControllerBase
         }
 
         return Ok(task);
+    }
+
+
+    [HttpGet("GetTasks")]
+    public IActionResult GetTasks()
+    {
+        var tasks = _context.Tasks.ToList();
+
+        if (tasks == null || tasks.Count == 0)
+        {
+            return NotFound("No tasks found");
+        }
+
+        return Ok(tasks);
     }
 }

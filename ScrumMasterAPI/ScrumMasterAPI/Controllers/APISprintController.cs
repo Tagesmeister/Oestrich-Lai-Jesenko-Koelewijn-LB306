@@ -41,7 +41,8 @@ public class SprintController : ControllerBase
         }
         existingSprint.StartDate = sprintUpdate.StartDate;
         existingSprint.EndDate = sprintUpdate.EndDate;
-        existingSprint.ProjectID = sprintUpdate.ProjectID;
+        existingSprint.Project = sprintUpdate.Project;
+        existingSprint.TaskIDs = sprintUpdate.TaskIDs;
 
         _context.Sprints.Update(existingSprint);
         _context.SaveChanges();
@@ -60,5 +61,17 @@ public class SprintController : ControllerBase
         }
 
         return Ok(sprint);
+    }
+    [HttpGet("GetSprints")]
+    public IActionResult GetSprints()
+    {
+        var sprints = _context.Sprints.ToList();
+
+        if (sprints == null || sprints.Count == 0)
+        {
+            return NotFound("No sprints found");
+        }
+
+        return Ok(sprints);
     }
 }
