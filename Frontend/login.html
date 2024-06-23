@@ -8,73 +8,77 @@
     <title>Scrum Manager</title>
 </head>
 <body>
-    <main id="login-main-container" class="view">
-        <h1 id="title">Scrum Manager</h1>
-        <div id="item">
-            <nav id="button-nav">
-                <button id="login-button" class="active" onclick="toggleAction('login')">Login</button>
-                <button id="register-button" onclick="toggleAction('register')">Register</button>
-            </nav>
-            <div id="user-input">
-                <label for="username">Username:</label>
-                <input id="username" type="text">
-                <label for="password">Password:</label>
-                <input id="password" type="password">
-                <div id="div-submit">
-                    <button id="submit" onclick="submitForm()">Login</button>
+    <div class="content">
+        <main id="login-main-container" class="view">
+            <h1 id="title">Scrum Manager</h1>
+            <div id="item">
+                <nav id="button-nav">
+                    <button id="login-button" class="active" onclick="toggleAction('login')">Login</button>
+                    <button id="register-button" onclick="toggleAction('register')">Register</button>
+                </nav>
+                <div id="user-input">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password">
+                    <div id="div-submit">
+                        <button id="submit" onclick="submitForm()">Login</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main id="dashboard-main-container" class="view" style="display: none;">
-        <h1 id="title">Scrum Manager</h1>
-        <div id="dashboard">
-            <p>Welcome User</p>
-            <p>Your Scrums:</p>
-            <div id="scrum-list">
-                <!-- Dynamically populated scrum list -->
+        </main>
+    
+        <main id="dashboard-main-container" class="view" style="display: none;">
+            <h1 id="title">Scrum Manager</h1>
+            <div id="dashboard">
+                <p>Welcome User</p>
+                <p>Your Scrums:</p>
+                <div id="scrum-list">
+                    <!-- Dynamically populated scrum list -->
+                </div>
+                <button onclick="showCreateScrum()">Create New Scrum</button>
             </div>
-            <button onclick="showCreateScrum()">Create New Scrum</button>
-        </div>
-    </main>
-
-    <main id="create-scrum-container" class="view" style="display: none;">
-        <h1 id="title">Scrum Manager</h1>
-        <div id="create-scrum">
-            <p>Create Scrum</p>
-            <label for="project-name">Project Name:</label>
-            <input id="project-name" type="text">
-            <label for="product-owner">Product Owner:</label>
-            <input id="product-owner" type="text">
-            <label for="scrum-master">Scrum Master:</label>
-            <input id="scrum-master" type="text">
-            <label for="developers">Developers:</label>
-            <div id="developers-list">
-                <input id="developer1" type="text">
+        </main>
+    
+        <main id="create-scrum-container" class="view" style="display: none;">
+            <h1 id="title">Scrum Manager</h1>
+            <div id="create-scrum">
+                <p>Create Scrum</p>
+                <label for="project-name">Project Name:</label>
+                <input id="project-name" type="text">
+                <label for="product-owner">Product Owner:</label>
+                <input id="product-owner" type="text">
+                <label for="scrum-master">Scrum Master:</label>
+                <input id="scrum-master" type="text">
+                <label for="developers">Developers:</label>
+                <div id="developers-list">
+                    <input id="developer1" type="text">
+                </div>
+                <button onclick="addDeveloper()">+ Add Dev</button>
+                <button onclick="createScrum()">Create Scrum</button>
+                <button onclick="logOut()">Log out</button>
             </div>
-            <button onclick="addDeveloper()">+ Add Dev</button>
-            <button onclick="createScrum()">Create Scrum</button>
-            <button onclick="logOut()">Log out</button>
-        </div>
-    </main>
-
-    <main id="home-container" class="view" style="display: none;">
-        <div class="navbar">
-            <a href="productOwner.html" onclick="showHome()">Product Owner</a>
-            <a href="developerTeam.html" onclick="showHome()">Developer Team</a>
-            <a href="scrumMaster.html" onclick="showHome()">Scrum Master</a>
-            <a href="editRoles.html" onclick="showHome()">Edit Roles</a>
-            <button class="logout-button" onclick="logOut()">Log out</button>
-        </div>
-        <div id="home-content">
-            <h2>Welcome!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur sadipscing elitr...</p>
-            <h2>Tutorial:</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur sadipscing elitr...</p>
-        </div>
-    </main>
-
+        </main>
+    
+        <main id="home-container" class="view" style="display: none;">
+            <div class="navbar">
+                <a href="productOwner.html" onclick="showHome()">Product Owner</a>
+                <a href="developerTeam.html" onclick="showHome()">Developer Team</a>
+                <a href="scrumMaster.html" onclick="showHome()">Scrum Master</a>
+                <a href="editRoles.html" onclick="showHome()">Edit Roles</a>
+                <button class="logout-button" onclick="logOut()">Log out</button>
+            </div>
+            <div id="home-content">
+                <h2>Welcome!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur sadipscing elitr...</p>
+                <h2>Tutorial:</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur sadipscing elitr...</p>
+            </div>
+        </main>
+    </div>
+    <div id="mobile-message">
+        Please open up on desktop or Full Screen
+    </div>
     <script src="login.js"></script>
 </body>
 </html>
