@@ -13,7 +13,7 @@ function saveBacklog() {
     const taskData = {
         title: title,
         description: description,
-        status: status  // Ensure the key matches the expected key in the backend
+        status: status 
     };
 
     console.log("Using access token:", accessToken);

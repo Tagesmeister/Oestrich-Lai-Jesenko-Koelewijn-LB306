@@ -161,9 +161,9 @@ input[type="password"]:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 800px;
-    margin: 10px auto; /* Further reduced top margin to bring the project box higher */
+    margin: 10px auto;
     text-align: center;
-    margin-top: -220px; /* Ensures enough space from the navbar */
+    margin-top: -220px;
 }
 
 #scrum-list div {
@@ -208,7 +208,6 @@ input[type="password"]:focus {
     margin-top: 20%;
 }
 
-/* Media query for mobile devices */
 @media (max-width: 768px) {
     .content {
         display: none;

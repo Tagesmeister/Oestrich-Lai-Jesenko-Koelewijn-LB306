@@ -98,7 +98,6 @@ body {
     margin-top: 20%;
   }
   
-  /* Styling for the role and backlog items */
   .role-item,
   .backlog-item {
     display: grid;

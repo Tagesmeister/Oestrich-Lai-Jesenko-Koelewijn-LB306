@@ -127,7 +127,6 @@ textarea {
   margin-top: 20%;
 }
 
-/* Media query for mobile devices */
 @media (max-width: 768px) {
   .content {
     display: none;

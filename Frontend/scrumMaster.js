@@ -1,7 +1,6 @@
 const apiUrl = "https://localhost:7270/api";
 const accessToken = localStorage.getItem('accessToken');
 
-// On window load, fetch role assignments, tasks, and scrum logs
 window.onload = function() {
     fetchScrumLogs()
 };

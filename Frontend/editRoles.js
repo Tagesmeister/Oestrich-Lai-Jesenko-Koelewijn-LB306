@@ -3,7 +3,6 @@ const roleIDs = {};
 
 const accessToken = localStorage.getItem('accessToken');
 
-// Fetch roles and update the role list
 async function fetchRoles() {
   try {
       const response = await fetch(`${apiUrl}/GetRoles`, {
@@ -25,10 +24,10 @@ async function fetchRoles() {
 
 function updateRoleList(roles) {
   const roleList = document.getElementById('role-list');
-  roleList.innerHTML = ''; // Clear existing list items
+  roleList.innerHTML = '';
   roles.forEach(role => {
       const listItem = document.createElement('li');
-      listItem.textContent = role.name; // Assuming each role object has a 'name' property
+      listItem.textContent = role.name;
       roleList.appendChild(listItem);
   });
 }
@@ -81,7 +80,7 @@ async function updateRole(roleId, role, name) {
     });
     if (!response.ok) throw new Error("Network response was not ok");
     roleIDs[roleId] = { role, name };
-    fetchRoles(); // Refresh the list after updating
+    fetchRoles();
   } catch (error) {
     console.error("Error:", error);
     alert(`Failed to update role: ${role}. Error: ${error.message}`);
@@ -105,7 +104,7 @@ async function deleteRole(roleID) {
 
     delete roleIDs[roleID];
     console.log('Role deleted successfully');
-    fetchRoles(); // Refresh the list after deleting
+    fetchRoles();
   } catch (error) {
     console.error('Error deleting role:', error);
   }
@@ -133,7 +132,6 @@ async function getRole(roleID) {
   }
 }
 
-// Edit role (populate the form with role data for editing)
 function editRole(roleId) {
   const role = roleIDs[roleId];
   if (role) {

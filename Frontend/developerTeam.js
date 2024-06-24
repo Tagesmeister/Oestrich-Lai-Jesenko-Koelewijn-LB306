@@ -1,7 +1,6 @@
 const apiUrl = "https://localhost:7270/api";
 const accessToken = localStorage.getItem('accessToken');
 
-// On window load, fetch developers and backlog items
 window.onload = function() {
     fetchRoles();
     fetchBacklogItems();
@@ -16,7 +15,7 @@ async function fetchRoles() {
         });
         if (!response.ok) throw new Error("Failed to fetch roles");
         const roles = await response.json();
-        console.log('Roles fetched:', roles); // Log the fetched roles
+        console.log('Roles fetched:', roles);
         updateRoleList(roles);
     } catch (error) {
         console.error("Error fetching roles:", error);
@@ -27,7 +26,7 @@ function updateRoleList(roles) {
     const roleList = document.getElementById('role-list');
     roleList.innerHTML = ''; 
     roles.forEach(role => {
-        console.log('Role:', role); // Log each role to verify its structure
+        console.log('Role:', role);
         const listItem = document.createElement('li');
         listItem.classList.add('role-item');
         
@@ -37,7 +36,7 @@ function updateRoleList(roles) {
         checkbox.value = role.roleID;
         
         listItem.appendChild(checkbox);
-        listItem.appendChild(document.createTextNode(`${role.roleID} ${role.roleName}: ${role.name}`)); // Assuming each role object has 'roleID', 'roleName', and 'name' properties
+        listItem.appendChild(document.createTextNode(`${role.roleID} ${role.roleName}: ${role.name}`));
         roleList.appendChild(listItem);
     });
 }
@@ -98,7 +97,7 @@ async function saveTask() {
         });
         if (!response.ok) throw new Error("Failed to create task");
         console.log("Task successfully created");
-        fetchBacklogItems(); // Refresh the backlog items
+        fetchBacklogItems();
     } catch (error) {
         console.error("Error creating task:", error);
     }
@@ -109,13 +108,13 @@ async function startSprint() {
     const checkedTaskElements = document.querySelectorAll('.task-checkbox:checked');
     const taskIDs = Array.from(checkedTaskElements).map(checkbox => parseInt(checkbox.value, 10));
 
-    console.log("Task IDs:", taskIDs); // Debugging line to check the extracted IDs
+    console.log("Task IDs:", taskIDs);
 
     // Get selected role IDs
     const checkedRoleElements = document.querySelectorAll('.role-checkbox:checked');
     const roleIDs = Array.from(checkedRoleElements).map(checkbox => parseInt(checkbox.value, 10));
 
-    console.log("Role IDs:", roleIDs); // Debugging line to check the extracted IDs
+    console.log("Role IDs:", roleIDs);
 
     const startDate = document.getElementById('sprint-StartDate').value;
     const endDate = document.getElementById('sprint-EndDate').value;
@@ -150,10 +149,7 @@ async function assignRolesToTask() {
     const checkedRoleElements = document.querySelectorAll('.role-checkbox:checked');
     const roleIDs = Array.from(checkedRoleElements).map(checkbox => parseInt(checkbox.value, 10));
 
-    console.log("Role IDs:", roleIDs); // Debugging line to check the extracted IDs
-
-    // Example of assigning roles to a specific task (assuming you have task ID and role assignment logic)
-    // This part depends on your API and how you handle role assignments to tasks
+    console.log("Role IDs:", roleIDs);
 
     try {
         const response = await fetch(`${apiUrl}/Task/AssignRoles`, {
@@ -162,7 +158,7 @@ async function assignRolesToTask() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`
             },
-            body: JSON.stringify({ RoleIDs: roleIDs, TaskID: someTaskID }) // Replace `someTaskID` with actual task ID
+            body: JSON.stringify({ RoleIDs: roleIDs, TaskID: TaskID })
         });
         if (!response.ok) throw new Error("Failed to assign roles to task");
         console.log("Roles successfully assigned to task");

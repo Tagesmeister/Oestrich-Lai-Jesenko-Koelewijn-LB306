@@ -1,11 +1,11 @@
-let currentAction = 'login'; // Default action
-let developersCount = 1; // Initial number of developers input fields
-let projectIDs = JSON.parse(localStorage.getItem('projectIDs')) || []; // Load project IDs from localStorage
+let currentAction = 'login';
+let developersCount = 1;
+let projectIDs = JSON.parse(localStorage.getItem('projectIDs')) || [];
 
 function toggleAction(action) {
     currentAction = action;
     const submitButton = document.getElementById('submit');
-    submitButton.textContent = action.charAt(0).toUpperCase() + action.slice(1); // Changes button text to "Login" or "Register"
+    submitButton.textContent = action.charAt(0).toUpperCase() + action.slice(1);
 
     const loginButton = document.getElementById('login-button');
     const registerButton = document.getElementById('register-button');
@@ -40,15 +40,14 @@ function submitForm() {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return response.text();  // Use .text() instead of .json() if the response is a token string
+        return response.text();
     })
     .then(data => {
         console.log(`${currentAction} successful:`, data);
-        if (data.startsWith("eyJ")) {  // Check if it looks like a JWT
+        if (data.startsWith("eyJ")) {
             localStorage.setItem('accessToken', data);
             showDashboard();
         } else {
-            // Assuming the response might be actual JSON string
             const result = JSON.parse(data);
             if (result.token) {
                 localStorage.setItem('accessToken', result.token);
@@ -123,7 +122,6 @@ function createScrum() {
         }
     }
 
-    // Create roles with developer numbering
     const roles = [
         { name: productOwner, roleName: 'Product Owner' },
         { name: scrumMaster, roleName: 'Scrum Master' },
@@ -173,8 +171,8 @@ function createScrum() {
         });
     })
     .then(project => {
-        projectIDs.push(project.projectID); // Add the newly created project ID to the list
-        localStorage.setItem('projectIDs', JSON.stringify(projectIDs)); // Save project IDs to localStorage
+        projectIDs.push(project.projectID);
+        localStorage.setItem('projectIDs', JSON.stringify(projectIDs));
         console.log('Scrum created successfully');
         showHome();
     })
@@ -198,13 +196,13 @@ function deleteScrum(projectID) {
         if (!response.ok) {
             return response.json().then(err => { throw new Error(err.message || `HTTP error! status: ${response.status}`); });
         }
-        return response.text();  // Expecting an empty body, treat it as text
+        return response.text();
     })
     .then(() => {
         console.log('Scrum deleted successfully');
-        projectIDs = projectIDs.filter(id => id !== projectID); // Remove the deleted project ID from the list
-        localStorage.setItem('projectIDs', JSON.stringify(projectIDs)); // Update project IDs in localStorage
-        fetchScrums();  // Refresh the list after deletion
+        projectIDs = projectIDs.filter(id => id !== projectID);
+        localStorage.setItem('projectIDs', JSON.stringify(projectIDs));
+        fetchScrums();
     })
     .catch(error => {
         console.error('Delete scrum failed:', error);
@@ -220,7 +218,6 @@ function showHome() {
 }
 
 function showScrumDetails(projectID) {
-    // Implement the logic to display the detailed view of the selected scrum
     document.getElementById('home-container').style.display = 'flex';
     document.getElementById('dashboard-main-container').style.display = 'none';
     fetchProjectDetails(projectID);
