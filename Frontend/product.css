@@ -21,9 +21,11 @@ body {
   text-decoration: none;
   color: black;
   border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-.navbar a.active, .navbar a:hover {
+.navbar a.active,
+.navbar a:hover {
   background-color: #e09520;
 }
 
@@ -32,6 +34,7 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #f8f8f8;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -39,7 +42,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex: 1;
+  flex: 1 1 45%;
   margin: 10px;
 }
 
@@ -84,14 +87,28 @@ textarea {
   margin: 0 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #e09520;
 }
 
 .backlog-list .backlog-item {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 5px 0;
-  border-bottom: 1px solid #ccc;
+  align-items: center;
+  width: calc(100% - 40px);
+  padding: 10px 20px;
+  margin: 5px 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.backlog-list .backlog-item:hover {
+  background-color: #f0f0f0;
 }
 
 .backlog-list .backlog-item .delete-button {
@@ -99,6 +116,7 @@ textarea {
   border: none;
   color: red;
   cursor: pointer;
+  font-size: 16px;
 }
 
 #mobile-message {
@@ -112,10 +130,10 @@ textarea {
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .content {
-      display: none;
+    display: none;
   }
 
   #mobile-message {
-      display: block;
+    display: block;
   }
 }

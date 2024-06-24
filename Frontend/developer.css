@@ -3,17 +3,17 @@ body {
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     display: flex;
     justify-content: space-around;
     background-color: #f0a500;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.navbar a {
+  }
+  
+  .navbar a {
     background-color: #f9a825;
     padding: 10px 20px;
     cursor: pointer;
@@ -21,57 +21,60 @@ body {
     text-decoration: none;
     color: black;
     border-radius: 5px;
-}
-
-.navbar a.active, .navbar a:hover {
+    transition: background-color 0.3s;
+  }
+  
+  .navbar a.active,
+  .navbar a:hover {
     background-color: #e09520;
-}
-
-.content {
+  }
+  
+  .content {
     padding: 20px;
     display: flex;
     justify-content: space-around;
     background-color: #f8f8f8;
-}
-
-.column {
+    flex-wrap: wrap;
+  }
+  
+  .column {
     background-color: #e0e0e0;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
+    flex: 1 1 30%;
     margin: 10px;
-}
-
-.column h2 {
+  }
+  
+  .column h2 {
     text-align: center;
     margin: 0 0 20px 0;
-}
-
-.tasks,
-.developers,
-.backlog {
+  }
+  
+  .tasks,
+  .developers,
+  .backlog {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-input,
-textarea {
+  }
+  
+  input,
+  textarea {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.buttons {
+  }
+  
+  .buttons {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-.buttons button {
+  }
+  
+  .buttons button {
     background-color: #f9a825;
     border: none;
     padding: 10px 20px;
@@ -80,24 +83,68 @@ textarea {
     margin: 0 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#mobile-message {
+    transition: background-color 0.3s;
+  }
+  
+  .buttons button:hover {
+    background-color: #e09520;
+  }
+  
+  #mobile-message {
     display: none;
     font-size: 24px;
     color: #333;
     text-align: center;
     margin-top: 20%;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
+  }
+  
+  /* Styling for the role and backlog items */
+  .role-item,
+  .backlog-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .role-item:hover,
+  .backlog-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .role-item {
+    margin: 5px 0;
+  }
+  
+  .backlog-item {
+    margin: 10px 0;
+  }
+  
+  .role-checkbox,
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .role-item label,
+  .backlog-item label {
+    text-align: left;
+    margin: 0 10px;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
     .content {
-        display: none;
+      display: none;
     }
-
+  
     #mobile-message {
-        display: block;
+      display: block;
     }
-}
-
+  }
+  
